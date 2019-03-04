@@ -3,7 +3,7 @@
   <form class="card-registro" [formGroup]="form">
 
     <mat-form-field class="field">
-      <input [(ngModel)]="user.name" matInput required placeholder="Nombre" formControlName="name" >
+      <input [(ngModel)]="user.name" matInput required placeholder="Nombre" formControlName="name">
       <mat-error *ngIf="!form.get('name').valid">{{getErrorMessage(form.get('name'))}}</mat-error>
     </mat-form-field>
 
@@ -36,6 +36,7 @@
     <button class="btn" type="submit" mat-raised-button color="accent" (click)="registroClick()" [disabled]="!form.valid">Registrate</button>
   </form>
 </mat-card>
-<h1>Hola me llamo {{user.name}} {{user.surname}}</h1>
-<h4>Me puedes llamar al {{user.phone}}  o me escribir a {{user.email}}</h4>
-
+<mat-card class="card-registro">
+  <h1>Hola me llamo {{user.name}} {{user.surname}}</h1>
+  <h4>Me puedes llamar al {{user.phone}} o me escribir a {{user.email}}</h4>
+</mat-card>
