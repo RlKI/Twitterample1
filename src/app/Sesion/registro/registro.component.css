@@ -1,0 +1,15 @@
+.card-registro{
+    max-width: 600px;
+    text-align: center;
+    
+    margin: 0 auto;
+    width: 90%;
+}
+.field{
+  
+  margin: 0 auto;
+  width: 60%;
+}
+.btn{    
+  margin: 0 auto;
+}

@@ -1,0 +1,41 @@
+<mat-card class="card-registro">
+  <h1>Bienvenido a Registro</h1>
+  <form class="card-registro" [formGroup]="form">
+
+    <mat-form-field class="field">
+      <input [(ngModel)]="user.name" matInput required placeholder="Nombre" formControlName="name" >
+      <mat-error *ngIf="!form.get('name').valid">{{getErrorMessage(form.get('name'))}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input [(ngModel)]="user.surname" matInput required placeholder="Apellido" formControlName="surname">
+      <mat-error *ngIf="!form.get('surname').valid">{{getErrorMessage(form.get('surname'))}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input [(ngModel)]="user.phone" matInput required placeholder="Celular" type="number" formControlName="phone">
+      <mat-error *ngIf="!form.get('phone').valid">{{getErrorMessage(form.get('phone'))}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input [(ngModel)]="user.email" matInput placeholder="Email" formControlName="email" required>
+      <mat-error *ngIf="!form.get('email').valid">{{getErrorMessage(form.get('email'))}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input [(ngModel)]="user.password" matInput type="password" required placeholder="Contraseña" formControlName="password">
+      <mat-error *ngIf="!form.get('password').valid">{{getErrorMessage(form.get('password'))}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <input matInput type="password" required placeholder="Confirmar Contraseña" formControlName="passconf">
+      <mat-error *ngIf="!form.get('passconf').valid">{{getErrorMessage(form.get('passconf'))}}</mat-error>
+    </mat-form-field>
+
+    <br />
+    <button class="btn" type="submit" mat-raised-button color="accent" (click)="registroClick()" [disabled]="!form.valid">Registrate</button>
+  </form>
+</mat-card>
+<h1>Hola me llamo {{user.name}} {{user.surname}}</h1>
+<h4>Me puedes llamar al {{user.phone}}  o me escribir a {{user.email}}</h4>
+
