@@ -8,21 +8,22 @@ import { User } from 'src/app/Models/User';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-
+  ValidaContra: boolean;
   form: FormGroup;
   user: User = new User();
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      name : new FormControl('', [Validators.required]),
-      surname : new FormControl('', [Validators.required]),
-      phone : new FormControl('', [Validators.required]),
-      email : new FormControl('', [Validators.required, Validators.email]),
-      password : new FormControl('', [Validators.required]),
-      passconf : new FormControl('', [Validators.required])
+      name: new FormControl('', [Validators.required]),
+      name2: new FormControl('', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
+      passconf: new FormControl('', [Validators.required])
     });
 
-    this.user.id=1;
+    this.user.id = 1;
   }
 
   ngOnInit() {
@@ -31,13 +32,23 @@ export class RegistroComponent implements OnInit {
   getErrorMessage(fc: FormControl) {
     //return 'Debe ingresar un valor'
     return fc.hasError('required') ? 'Debes ingresar un valor' :
-        fc.hasError('email') ? 'Correo inválido' :
-            '';
+      fc.hasError('email') ? 'Correo inválido' :
+        fc.hasError('passconf') ? 'Contraseña no coincide' :
+          '';
   }
 
-  registroClick(){ 
-    alert("Registro completo");
-    console.log(this.user);
+  registroClick() {
+
+    if (this.form.get('passconf').value != this.form.get('password').value) {
+      alert("Contraseña diferente");
+      this.ValidaContra = true;
+      console.log(this.ValidaContra);
+    }
+    else {
+      alert("Registro completo");
+      console.log(this.user);
+    }
+
   }
 
 }

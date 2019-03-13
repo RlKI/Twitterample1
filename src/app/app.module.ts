@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './Sesion/registro/registro.component';
 import { TweetsComponent } from './Tweets/tweets/tweets.component';
+import { LoginComponent } from './Sesion/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroComponent,
-    TweetsComponent
+    TweetsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,11 @@
     </mat-form-field>
 
     <mat-form-field class="field">
+      <input [(ngModel)]="user.name2" matInput required placeholder="Nombre 2" formControlName="name2">
+      <mat-error *ngIf="!form.get('name2').valid">{{getErrorMessage(form.get('name2'))}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="field">
       <input [(ngModel)]="user.surname" matInput required placeholder="Apellido" formControlName="surname">
       <mat-error *ngIf="!form.get('surname').valid">{{getErrorMessage(form.get('surname'))}}</mat-error>
     </mat-form-field>
@@ -24,7 +29,8 @@
 
     <mat-form-field class="field">
       <input [(ngModel)]="user.password" matInput type="password" required placeholder="Contraseña" formControlName="password">
-      <mat-error *ngIf="!form.get('password').valid">{{getErrorMessage(form.get('password'))}}</mat-error>
+      
+      <mat-error *ngIf="ValidaContra">cOmrtra</mat-error>
     </mat-form-field>
 
     <mat-form-field class="field">
@@ -37,6 +43,6 @@
   </form>
 </mat-card>
 <mat-card class="card-registro">
-  <h1>Hola me llamo {{user.name}} {{user.surname}}</h1>
+  <h1>Hola me llamo {{user.name}} {{user.name2}} {{user.surname}}</h1>
   <h4>Me puedes llamar al {{user.phone}} o me escribir a {{user.email}}</h4>
 </mat-card>
